@@ -1,6 +1,7 @@
-FROM python:3-alpine3.15
+FROM python:3-alpine
 WORKDIR /app
 COPY . /app
-RUN pip install --upgrade pip -r requirements.txt
+RUN pip install pip-upgrader
+RUN pip freeze > requirements.txt
 EXPOSE 3000
-CMD python .index.py
+CMD python main.py
